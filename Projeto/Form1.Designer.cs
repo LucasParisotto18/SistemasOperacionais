@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelCorpo = new System.Windows.Forms.Panel();
-            this.buttonSimulador = new System.Windows.Forms.Button();
+            this.buttonConectar = new System.Windows.Forms.Button();
             this.buttonReal = new System.Windows.Forms.Button();
+            this.buttonSimulador = new System.Windows.Forms.Button();
+            this.panelCorpo = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
+            this.panelMenu.Controls.Add(this.buttonConectar);
             this.panelMenu.Controls.Add(this.buttonReal);
             this.panelMenu.Controls.Add(this.buttonSimulador);
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -45,12 +47,25 @@
             this.panelMenu.TabIndex = 0;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // panelCorpo
+            // buttonConectar
             // 
-            this.panelCorpo.Location = new System.Drawing.Point(163, 0);
-            this.panelCorpo.Name = "panelCorpo";
-            this.panelCorpo.Size = new System.Drawing.Size(1151, 611);
-            this.panelCorpo.TabIndex = 1;
+            this.buttonConectar.Location = new System.Drawing.Point(21, 337);
+            this.buttonConectar.Name = "buttonConectar";
+            this.buttonConectar.Size = new System.Drawing.Size(116, 49);
+            this.buttonConectar.TabIndex = 2;
+            this.buttonConectar.Text = "Remoto";
+            this.buttonConectar.UseVisualStyleBackColor = true;
+            this.buttonConectar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonReal
+            // 
+            this.buttonReal.Location = new System.Drawing.Point(21, 259);
+            this.buttonReal.Name = "buttonReal";
+            this.buttonReal.Size = new System.Drawing.Size(116, 49);
+            this.buttonReal.TabIndex = 1;
+            this.buttonReal.Text = "Real";
+            this.buttonReal.UseVisualStyleBackColor = true;
+            this.buttonReal.Click += new System.EventHandler(this.buttonReal_Click);
             // 
             // buttonSimulador
             // 
@@ -62,15 +77,12 @@
             this.buttonSimulador.UseVisualStyleBackColor = true;
             this.buttonSimulador.Click += new System.EventHandler(this.buttonSimuladdor_Click);
             // 
-            // buttonReal
+            // panelCorpo
             // 
-            this.buttonReal.Location = new System.Drawing.Point(21, 267);
-            this.buttonReal.Name = "buttonReal";
-            this.buttonReal.Size = new System.Drawing.Size(116, 49);
-            this.buttonReal.TabIndex = 1;
-            this.buttonReal.Text = "Real";
-            this.buttonReal.UseVisualStyleBackColor = true;
-            this.buttonReal.Click += new System.EventHandler(this.buttonReal_Click);
+            this.panelCorpo.Location = new System.Drawing.Point(163, 0);
+            this.panelCorpo.Name = "panelCorpo";
+            this.panelCorpo.Size = new System.Drawing.Size(1151, 611);
+            this.panelCorpo.TabIndex = 1;
             // 
             // Form1
             // 
@@ -92,6 +104,7 @@
         private System.Windows.Forms.Button buttonReal;
         private System.Windows.Forms.Button buttonSimulador;
         private System.Windows.Forms.Panel panelCorpo;
+        private System.Windows.Forms.Button buttonConectar;
     }
 }
 

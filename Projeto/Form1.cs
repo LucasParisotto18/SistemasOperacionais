@@ -18,6 +18,9 @@ namespace Projeto
         Dictionary<int, TimeSpan> cpuTimesAntigos = new Dictionary<int, TimeSpan>();
         DateTime ultimaAtualizacao = DateTime.Now;
         private DataGridView dgvProcessos = new DataGridView();
+        private Timer timerAtualizacao;
+        private TextBox txtBusca;
+        private CheckBox btnAtualizar;
 
 
         public Form1()
@@ -26,7 +29,6 @@ namespace Projeto
 
 
             // Configuração visual do DataGridView
-            dgvProcessos.Location = new Point(20, 95); // ajuste posição
             dgvProcessos.Size = new Size(530, 200);     // ajuste tamanho
             dgvProcessos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProcessos.ReadOnly = true;
@@ -41,6 +43,15 @@ namespace Projeto
             dgvProcessos.Columns.Add("Prioridade", "Prioridade");
 
             //panelCorpo.Controls.Add(dgvProcessos);
+
+            timerAtualizacao = new Timer();
+            timerAtualizacao.Interval = 8000;
+            timerAtualizacao.Tick += (s, ev) => {
+                if (string.IsNullOrWhiteSpace(txtBusca.Text) && btnAtualizar.Checked && btnAtualizar != null && txtBusca != null)
+                {
+                    AtualizarListaDeProcessos();
+                }
+            };
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -50,8 +61,9 @@ namespace Projeto
 
         private void buttonSimuladdor_Click(object sender, EventArgs e)
         {
-
+            timerAtualizacao.Stop();
             panelCorpo.Controls.Clear();
+            dgvProcessos.Rows.Clear();
 
             // Label título
             var lblTitulo = new Label()
@@ -232,18 +244,18 @@ namespace Projeto
                 MessageBox.Show(log, "Resultado Round-Robin");
             };
 
-        } 
+        }
 
         private void buttonReal_Click(object sender, EventArgs e)
         {
-            
+
             panelCorpo.Controls.Clear(); // limpa os controles antigos do painel
+            dgvProcessos.Rows.Clear();
+            dgvProcessos.Location = new Point(20, 95); // ajuste posição
             panelCorpo.Controls.Add(this.dgvProcessos); // adiciona a grid novamente (se quiser garantir)
 
-            var timerAtualizacao = new Timer();
-            timerAtualizacao.Interval = 8000; // 8s
-            timerAtualizacao.Start();
-
+            if (!timerAtualizacao.Enabled)
+                timerAtualizacao.Start();
 
 
             // Label título
@@ -267,7 +279,7 @@ namespace Projeto
             panelCorpo.Controls.Add(lblBusca);
 
             // TextBox para busca de processos
-            var txtBusca = new TextBox()
+            txtBusca = new TextBox()
             {
                 Location = new Point(190, 60),
                 Width = 200
@@ -293,7 +305,7 @@ namespace Projeto
             panelCorpo.Controls.Add(btnListar);
 
             // Botao atualizar lista de processos (Sim - Nao)
-            var btnAtualizar = new CheckBox()
+            btnAtualizar = new CheckBox()
             {
                 Text = "Atualizar lista a cada 8 segundos",
                 Location = new Point(240, 300),
@@ -301,18 +313,6 @@ namespace Projeto
                 Checked = true
             };
             panelCorpo.Controls.Add(btnAtualizar);
-
-            // TextBox para exibir os processos
-            /**var dgvProcessos = new DataGridView()
-            {
-                Location = new Point(20, 90),
-                Width = 500,
-                Height = 200,
-                ScrollBars = ScrollBars.Vertical,
-                
-
-            };
-            panelCorpo.Controls.Add(dgvProcessos); **/
 
             // Label para selecionar processo
             var lblSelecionar = new Label()
@@ -495,7 +495,7 @@ namespace Projeto
                         processo.Kill();
                         MessageBox.Show("Processo encerrado com sucesso.");
 
-                        // Opcional: atualiza lista após encerrar
+                        // Atualiza lista após encerrar
                         cbProcessos.Items.Remove(cbProcessos.SelectedItem);
                     }
                     catch (Exception ex)
@@ -505,49 +505,6 @@ namespace Projeto
                 }
             };
 
-            // Evento para atualizar a lista de processos a cada 8 segundos
-            void AtualizarListaDeProcessos()
-            {
-                dgvProcessos.Rows.Clear();
-                dgvProcessos.DataSource = null;
-
-                var processos = Process.GetProcesses();
-                Console.WriteLine(processos);
-
-                TimeSpan intervalo = DateTime.Now - ultimaAtualizacao;
-                ultimaAtualizacao = DateTime.Now;
-
-                foreach (var processo in processos)
-                {
-                    try
-                    {
-                        double memoriaMB = processo.WorkingSet64 / (1024.0 * 1024.0);
-                        TimeSpan cpuAtual = processo.TotalProcessorTime;
-
-                        double usoCpu = 0;
-
-                        if (cpuTimesAntigos.TryGetValue(processo.Id, out TimeSpan cpuAntigo))
-                        {
-                            usoCpu = (cpuAtual - cpuAntigo).TotalMilliseconds / intervalo.TotalMilliseconds;
-                            usoCpu = usoCpu * 100 / Environment.ProcessorCount;
-                        }
-
-                        // Atualiza o tempo atual no dicionário
-                        cpuTimesAntigos[processo.Id] = cpuAtual;
-
-                        int index = dgvProcessos.Rows.Add();
-                        dgvProcessos.Rows[index].Cells["Nome"].Value = processo.ProcessName;
-                        dgvProcessos.Rows[index].Cells["PID"].Value = processo.Id;
-                        dgvProcessos.Rows[index].Cells["Memoria"].Value = memoriaMB.ToString("F2");
-                        dgvProcessos.Rows[index].Cells["CPU"].Value = usoCpu.ToString("F2");
-                        dgvProcessos.Rows[index].Cells["Prioridade"].Value = processo.BasePriority;
-                    }
-                    catch
-                    {
-                        // ignora processos protegidos ou que já foram finalizados
-                    }
-                }
-            }
 
             void AtualizarComboBoxComProcessos(List<Process> processos)
             {
@@ -572,15 +529,246 @@ namespace Projeto
                 if (cbProcessos.Items.Count > 0)
                     cbProcessos.SelectedIndex = 0;
             }
-
-            timerAtualizacao.Tick += (s, ev) =>
-            {
-                if (string.IsNullOrWhiteSpace(txtBusca.Text) && btnAtualizar.Checked)
-                {
-                    AtualizarListaDeProcessos();
-                } 
-            };
         }
-       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            timerAtualizacao.Stop();
+            panelCorpo.Controls.Clear();
+            dgvProcessos.Location = new Point(20, 150);
+            dgvProcessos.Rows.Clear();
+            panelCorpo.Controls.Add(this.dgvProcessos);
+
+            // Label título
+            Label lblTitulo = new Label()
+            {
+                Text = "Listagem de Processos Remotos",
+                Font = new Font("Arial", 16, FontStyle.Bold),
+                Dock = DockStyle.Top,
+                Height = 40,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            panelCorpo.Controls.Add(lblTitulo);
+
+            // Label para busca de processos
+            var lblBusca = new Label()
+            {
+                Text = "Buscar processo por nome:",
+                Location = new Point(20, 120),
+                Width = 150
+            };
+            panelCorpo.Controls.Add(lblBusca);
+
+            // TextBox para busca de processos
+            txtBusca = new TextBox()
+            {
+                Location = new Point(180, 120),
+                Width = 200
+            };
+            panelCorpo.Controls.Add(txtBusca);
+
+            // Botão de busca
+            var btnBuscar = new Button()
+            {
+                Text = "Buscar",
+                Location = new Point(390, 119),
+                Width = 100
+            };
+            panelCorpo.Controls.Add(btnBuscar);
+
+            var lblIP = new Label()
+            {
+                Text = "IP da máquina remota:",
+                Location = new Point(20, 80),
+                Width = 150
+            };
+            panelCorpo.Controls.Add(lblIP);
+
+            var txtIP = new TextBox()
+            {
+                Location = new Point(180, 80),
+                Width = 200,
+                Name = "txtIP"
+            };
+            panelCorpo.Controls.Add(txtIP);
+
+            var btnConectar = new Button()
+            {
+                Text = "Conectar",
+                Location = new Point(390, 79),
+                Width = 100
+            };
+            panelCorpo.Controls.Add(btnConectar);
+
+            var lblSelecionar = new Label()
+            {
+                Text = "Selecionar processo:",
+                Location = new Point(20, 400),
+                Width = 130
+            };
+            panelCorpo.Controls.Add(lblSelecionar);
+
+            // ComboBox  selecionar processo
+            var cbProcessos = new ComboBox()
+            {
+                Location = new Point(180, 400),
+                Width = 230,
+                DropDownStyle = ComboBoxStyle.DropDownList
+            };
+            panelCorpo.Controls.Add(cbProcessos);
+
+
+            var lblPrioridade = new Label()
+            {
+                Text = "Nova prioridade:",
+                Location = new Point(20, 440),
+                Width = 130
+            };
+            panelCorpo.Controls.Add(lblPrioridade);
+
+            // ComboBox para selecionar prioridade
+            var cbPrioridades = new ComboBox()
+            {
+                Location = new Point(180, 440),
+                Width = 200,
+                DropDownStyle = ComboBoxStyle.DropDownList
+            };
+            cbPrioridades.Items.AddRange(new object[]
+            {
+                ProcessPriorityClass.Idle,
+                ProcessPriorityClass.BelowNormal,
+                ProcessPriorityClass.Normal,
+                ProcessPriorityClass.AboveNormal,
+                ProcessPriorityClass.High,
+                ProcessPriorityClass.RealTime
+            });
+            cbPrioridades.SelectedIndex = 2; // Normal
+            panelCorpo.Controls.Add(cbPrioridades);
+
+            var btnAlterarPrioridade = new Button()
+            {
+                Text = "Alterar Prioridade",
+                Location = new Point(410, 440),
+                Width = 150
+            };
+            panelCorpo.Controls.Add(btnAlterarPrioridade);
+
+            // Botão para encerrar processo
+            var btnEncerrarProcesso = new Button()
+            {
+                Text = "Encerrar Processo",
+                Location = new Point(420, 400),
+                Width = 150
+            };
+            panelCorpo.Controls.Add(btnEncerrarProcesso);
+
+
+            // Buscar Processos Remotos
+            btnConectar.Click += async (s, ev) =>
+            {
+                string ip = txtIP.Text.Trim();
+                if (string.IsNullOrWhiteSpace(ip))
+                {
+                    MessageBox.Show("Informe o IP da máquina remota.");
+                    return;
+                }
+
+                var processos = await Cliente.ObterProcessos(ip);
+
+                if(processos == null || processos.Count == 0)
+                {
+                    MessageBox.Show("Nenhum processo encontrado ou erro ao conectar.");
+                    return;
+                }
+
+                dgvProcessos.Rows.Clear();
+
+                foreach (var processo in processos)
+                {
+                    dgvProcessos.Rows.Add(
+                        processo.ProcessName,
+                        processo.Id,
+                        processo.Memoria.ToString("F2"),
+                        processo.usoCpu.ToString("F2"),
+                        processo.BasePriority
+                    );
+                }
+            };
+
+            // Evento para buscar processo remotos por nome
+            btnBuscar.Click += async (s, ev) =>
+            {
+                string ip = txtIP.Text.Trim();
+                string termo = txtBusca.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(ip) || string.IsNullOrWhiteSpace(termo))
+                {
+                    MessageBox.Show("Informe o IP e o termo de busca.");
+                    return;
+                }
+
+                var lista = await Cliente.BuscarProcessosPorNome(ip, termo);
+
+                dgvProcessos.Rows.Clear();
+
+                foreach (var p in lista)
+                {
+                    dgvProcessos.Rows.Add(
+                        p.ProcessName,
+                        p.Id,
+                        p.Memoria.ToString("F2"),
+                        p.usoCpu.ToString("F2"),
+                        p.BasePriority
+                    );
+                }
+            };
+
+
+        }
+
+        // Evento para atualizar a lista de processos a cada 8 segundos
+        private void AtualizarListaDeProcessos()
+        {
+            dgvProcessos.Rows.Clear();
+            dgvProcessos.DataSource = null;
+
+            var processos = Process.GetProcesses();
+            //Console.WriteLine(processos);
+
+            TimeSpan intervalo = DateTime.Now - ultimaAtualizacao;
+            ultimaAtualizacao = DateTime.Now;
+
+            foreach (var processo in processos)
+            {
+                try
+                {
+                    double memoriaMB = processo.WorkingSet64 / (1024.0 * 1024.0);
+                    TimeSpan cpuAtual = processo.TotalProcessorTime;
+
+                    double usoCpu = 0;
+
+                    if (cpuTimesAntigos.TryGetValue(processo.Id, out TimeSpan cpuAntigo))
+                    {
+                        usoCpu = (cpuAtual - cpuAntigo).TotalMilliseconds / intervalo.TotalMilliseconds;
+                        usoCpu = usoCpu * 100 / Environment.ProcessorCount;
+                    }
+
+                    // Atualiza o tempo atual no dicionário
+                    cpuTimesAntigos[processo.Id] = cpuAtual;
+
+                    int index = dgvProcessos.Rows.Add();
+                    dgvProcessos.Rows[index].Cells["Nome"].Value = processo.ProcessName;
+                    dgvProcessos.Rows[index].Cells["PID"].Value = processo.Id;
+                    dgvProcessos.Rows[index].Cells["Memoria"].Value = memoriaMB.ToString("F2");
+                    dgvProcessos.Rows[index].Cells["CPU"].Value = usoCpu.ToString("F2");
+                    dgvProcessos.Rows[index].Cells["Prioridade"].Value = processo.BasePriority;
+                }
+                catch
+                {
+                    // ignora processos protegidos ou que já foram finalizados
+                }
+            }
+        }
     }
+
 }
