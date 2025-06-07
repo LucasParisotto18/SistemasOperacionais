@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Faculdade\\TesteSocket\\Sockett\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E750AF7B-FAAB-41BA-9CFC-E2B342F1ADC1}|Sockett\\Sockett.csproj|c:\\faculdade\\testesocket\\sockett\\sockett\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E750AF7B-FAAB-41BA-9CFC-E2B342F1ADC1}|Sockett\\Sockett.csproj|solutionrelative:sockett\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Faculdade\\TesteSocket\\Sockett\\Sockett\\Program.cs",
+              "RelativeDocumentMoniker": "Sockett\\Program.cs",
+              "ToolTip": "C:\\Faculdade\\TesteSocket\\Sockett\\Sockett\\Program.cs",
+              "RelativeToolTip": "Sockett\\Program.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAAwHIAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-07T15:19:40.052Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
