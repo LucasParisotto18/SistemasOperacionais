@@ -1,0 +1,68 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|c:\\users\\lucas\\desktop\\faculdade\\so\\trabalhofinal\\projeto\\projeto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|solutionrelative:projeto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\projeto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|solutionrelative:projeto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\projeto\\processosimulado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|solutionrelative:projeto\\processosimulado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProcessoSimulado.cs",
+              "DocumentMoniker": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\ProcessoSimulado.cs",
+              "RelativeDocumentMoniker": "Projeto\\ProcessoSimulado.cs",
+              "ToolTip": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\ProcessoSimulado.cs",
+              "RelativeToolTip": "Projeto\\ProcessoSimulado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T00:23:36.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Form1.cs",
+              "RelativeDocumentMoniker": "Projeto\\Form1.cs",
+              "ToolTip": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Form1.cs",
+              "RelativeToolTip": "Projeto\\Form1.cs",
+              "ViewState": "AgIAAIwBAAAAAAAAAAAIwI8BAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T00:15:21.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Form1.cs",
+              "RelativeDocumentMoniker": "Projeto\\Form1.cs",
+              "ToolTip": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Form1.cs [Design]",
+              "RelativeToolTip": "Projeto\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T00:11:48.661Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

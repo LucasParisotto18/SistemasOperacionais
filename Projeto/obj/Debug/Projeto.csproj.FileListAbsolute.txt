@@ -1,0 +1,10 @@
+C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\bin\Debug\Projeto.exe.config
+C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\bin\Debug\Projeto.exe
+C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\bin\Debug\Projeto.pdb
+C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\obj\Debug\Projeto.csproj.AssemblyReference.cache
+C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\obj\Debug\Projeto.Form1.resources
+C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\obj\Debug\Projeto.Properties.Resources.resources
+C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\obj\Debug\Projeto.csproj.GenerateResource.cache
+C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\obj\Debug\Projeto.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\obj\Debug\Projeto.exe
+C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\obj\Debug\Projeto.pdb
