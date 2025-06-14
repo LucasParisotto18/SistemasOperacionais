@@ -395,9 +395,8 @@ namespace Projeto
                     .OrderBy(p => p.ProcessName)
                     .ToList();
 
-                dgvProcessos.Rows.Clear(); // limpa o DataGridView antes de mostrar os resultados filtrados
-
-                cbProcessos.Items.Clear(); // limpa o combobox (caso você continue usando)
+                dgvProcessos.Rows.Clear();
+                cbProcessos.Items.Clear();
 
                 foreach (var processo in processosFiltrados)
                 {
@@ -428,14 +427,16 @@ namespace Projeto
                             processo.BasePriority
                         );
 
-                        // Adiciona ao ComboBox (opcional)
+                        // Adiciona ao ComboBox
                         cbProcessos.Items.Add(new
                         {
                             Display = $"{processo.ProcessName} (PID: {processo.Id})",
                             Processo = processo
                         });
                     }
-                    catch { }
+                    catch { 
+                        
+                    }
                 }
 
                 cbProcessos.DisplayMember = "Display";
@@ -682,6 +683,7 @@ namespace Projeto
                 }
 
                 dgvProcessos.Rows.Clear();
+                cbProcessos.Items.Clear();
 
                 foreach (var processo in processos)
                 {
@@ -692,16 +694,26 @@ namespace Projeto
                         processo.usoCpu.ToString("F2"),
                         processo.BasePriority
                     );
+                    cbProcessos.Items.Add(new
+                    {
+                        Display = $"{processo.ProcessName} (PID: {processo.Id})",
+                        Processo = processo
+                    });
                 }
+                cbProcessos.DisplayMember = "Display";
+                cbProcessos.ValueMember = "Processo";
+
+                if (cbProcessos.Items.Count > 0)
+                    cbProcessos.SelectedIndex = 0;
             };
 
-            // Evento para buscar processo remotos por nome
+            // Evento para buscar Processos Remoto por nome
             btnBuscar.Click += async (s, ev) =>
             {
                 string ip = txtIP.Text.Trim();
                 string termo = txtBusca.Text.Trim();
 
-                if (string.IsNullOrWhiteSpace(ip) || string.IsNullOrWhiteSpace(termo))
+                if (string.IsNullOrWhiteSpace(ip) && string.IsNullOrWhiteSpace(termo))
                 {
                     MessageBox.Show("Informe o IP e o termo de busca.");
                     return;
@@ -710,7 +722,86 @@ namespace Projeto
                 var lista = await Cliente.BuscarProcessosPorNome(ip, termo);
 
                 dgvProcessos.Rows.Clear();
+                cbProcessos.Items.Clear();
 
+                foreach (var p in lista)
+                {
+                    dgvProcessos.Rows.Add(
+                        p.ProcessName,
+                        p.Id,
+                        p.Memoria.ToString("F2"),
+                        p.usoCpu.ToString("F2"),
+                        p.BasePriority
+                    );
+
+                    // Adiciona ao ComboBox
+                    cbProcessos.Items.Add(new
+                    {
+                        Display = $"{p.ProcessName} (PID: {p.Id})",
+                        Processo = p
+                    });
+                }
+
+                cbProcessos.DisplayMember = "Display";
+                cbProcessos.ValueMember = "Processo";
+
+                if (cbProcessos.Items.Count > 0)
+                    cbProcessos.SelectedIndex = 0;
+            };
+
+            // Evento para Alterar Prioridade do processo Remoto
+            btnAlterarPrioridade.Click += async (s, ev) =>
+            {
+                if (cbProcessos.SelectedItem == null || cbPrioridades.SelectedItem == null)
+                {
+                    MessageBox.Show("Selecione um processo e uma prioridade.");
+                    return;
+                }
+
+                dynamic item = cbProcessos.SelectedItem;
+                ProcessoRemoto processo = item.Processo;
+                string ip = txtIP.Text.Trim();
+                string novaPrioridade = cbPrioridades.SelectedItem.ToString();
+
+                var resposta = await Cliente.AlterarPrioridade(ip, processo.Id, novaPrioridade);
+
+                //Atualiza Lista
+                var processosAtualizados = await Cliente.ObterProcessos(ip);
+                dgvProcessos.Rows.Clear();
+                foreach (var p in processosAtualizados)
+                {
+                    dgvProcessos.Rows.Add(
+                        p.ProcessName,
+                        p.Id,
+                        p.Memoria.ToString("F2"),
+                        p.usoCpu.ToString("F2"),
+                        p.BasePriority
+                    );
+                }
+
+                MessageBox.Show("Resposta do servidor: " + resposta);
+            };
+
+            //Encerrar Processo Remoto
+            btnEncerrarProcesso.Click += async (s, ev) =>
+            {
+                if (cbProcessos.SelectedItem == null)
+                {
+                    MessageBox.Show("Selecione um processo.");
+                    return;
+                }
+
+                dynamic item = cbProcessos.SelectedItem;
+                ProcessoRemoto processo = item.Processo;
+                string ip = txtIP.Text.Trim();
+
+                var resposta = await Cliente.EncerrarProcesso(ip, processo.Id);
+
+                MessageBox.Show("Resposta do servidor: " + resposta);
+
+                // Recarrega a lista
+                var lista = await Cliente.ObterProcessos(ip);
+                dgvProcessos.Rows.Clear();
                 foreach (var p in lista)
                 {
                     dgvProcessos.Rows.Add(
@@ -763,6 +854,7 @@ namespace Projeto
                     dgvProcessos.Rows[index].Cells["CPU"].Value = usoCpu.ToString("F2");
                     dgvProcessos.Rows[index].Cells["Prioridade"].Value = processo.BasePriority;
                 }
+
                 catch
                 {
                     // ignora processos protegidos ou que já foram finalizados

@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|solutionrelative:projeto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|c:\\users\\lucas\\desktop\\faculdade\\so\\trabalhofinal\\projeto\\projeto\\processoremoto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|solutionrelative:projeto\\processoremoto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\projeto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|solutionrelative:projeto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|c:\\users\\lucas\\desktop\\faculdade\\so\\trabalhofinal\\projeto\\projeto\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|solutionrelative:projeto\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\projeto\\processoremoto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|solutionrelative:projeto\\processoremoto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\projeto\\processosimulado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,38 +30,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ProcessoRemoto.cs",
               "DocumentMoniker": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\ProcessoRemoto.cs",
               "RelativeDocumentMoniker": "Projeto\\ProcessoRemoto.cs",
               "ToolTip": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\ProcessoRemoto.cs",
               "RelativeToolTip": "Projeto\\ProcessoRemoto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-07T20:08:47.72Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Cliente.cs",
               "DocumentMoniker": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Cliente.cs",
               "RelativeDocumentMoniker": "Projeto\\Cliente.cs",
               "ToolTip": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Cliente.cs",
               "RelativeToolTip": "Projeto\\Cliente.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAcwCsAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAYwH8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-07T17:37:41.792Z",
               "EditorCaption": ""
@@ -76,8 +72,7 @@
               "RelativeToolTip": "Projeto\\ProcessoSimulado.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T00:23:36.095Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T00:23:36.095Z"
             },
             {
               "$type": "Document",
@@ -87,14 +82,14 @@
               "RelativeDocumentMoniker": "Projeto\\Form1.cs",
               "ToolTip": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Form1.cs",
               "RelativeToolTip": "Projeto\\Form1.cs",
-              "ViewState": "AgIAAKgCAAAAAAAAAAAcwLUCAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAJ8CAAAAAAAAAAAAALUCAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-01T00:15:21.601Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Form1.cs",
               "RelativeDocumentMoniker": "Projeto\\Form1.cs",
