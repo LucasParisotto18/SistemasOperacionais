@@ -60,8 +60,9 @@ class Servidor
                             {
                                 usoCpu = (cpuAtual - cpuAntigo).TotalMilliseconds / intervalo.TotalMilliseconds;
                                 usoCpu = usoCpu * 100 / Environment.ProcessorCount;
+                                
                             }
-
+                            usoCpu = 1;
                             // Atualiza para próxima leitura
                             cpuTimesAntigos[p.Id] = cpuAtual;
                         }
@@ -75,7 +76,7 @@ class Servidor
                             Id = p.Id,
                             BasePriority = prioridade,
                             Memoria = memoriaMB,
-                            Cpu = Math.Round(usoCpu, 2)
+                            usoCpu = Math.Round(usoCpu, 2)
                         };
                     })
                     .ToList();
@@ -133,12 +134,59 @@ class Servidor
 
                     string jsonResponse = JsonConvert.SerializeObject(processos);
                     await writer.WriteLineAsync(jsonResponse);
-                } else
-                {
+
+                } else {
+                    if (comando.StartsWith("set_priority:"))
+                    {
+                        try
+                        {
+                            string[] partes = comando.Split(':');
+                            if (partes.Length == 3 &&
+                                int.TryParse(partes[1], out int pid) &&
+                                Enum.TryParse(partes[2], out ProcessPriorityClass novaPrioridade))
+                            {
+                                var processo = Process.GetProcessById(pid);
+                                processo.PriorityClass = novaPrioridade;
+
+                                await writer.WriteLineAsync("Prioridade Atualizada.");
+                            }
+                            else
+                            {
+                                await writer.WriteLineAsync("Erro: Comando invalido. (Lenght != 3)");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            await writer.WriteLineAsync("erro: " + ex.Message);
+                        }
+                    } else {
+                        if (comando.StartsWith("kill:"))
+                        {
+                            try
+                            {
+                                string[] partes = comando.Split(':');
+                                if (partes.Length == 2 && int.TryParse(partes[1], out int pid))
+                                {
+                                    var processo = Process.GetProcessById(pid);
+                                    processo.Kill();
+
+                                    await writer.WriteLineAsync("Processo Finalizado.");
+                                }
+                                else
+                                {
+                                    await writer.WriteLineAsync("Erro: comando inválido");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                await writer.WriteLineAsync("Erro: " + ex.Message);
+                            }
+                        }
+                    }
+                 }
                     //comand invalido
                 }
             }
-        }
         catch (Exception ex)
         {
             Console.WriteLine($"Erro: {ex.Message}");
