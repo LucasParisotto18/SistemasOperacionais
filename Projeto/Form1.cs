@@ -68,26 +68,46 @@ namespace Projeto
             // Label título
             var lblTitulo = new Label()
             {
-                Text = "Simulador de Escalonamento - FCFS",
+                Text = "Simulador de Escalonamento",
                 Font = new Font("Arial", 16, FontStyle.Bold),
-                Dock = DockStyle.Top,
-                Height = 40,
-                TextAlign = ContentAlignment.MiddleCenter
+                Location = new Point(120, 1),
+                Width = 400,                 
+                Height = 40,                  
+                TextAlign = ContentAlignment.MiddleLeft 
             };
             panelCorpo.Controls.Add(lblTitulo);
 
             // Campos de entrada
-            var txtNome = new TextBox() { Text = "Nome", Width = 120, Location = new Point(20, 60) };
-            var txtChegada = new TextBox() { Text = "Chegada", Width = 80, Location = new Point(150, 60) };
-            var txtDuracao = new TextBox() { Text = "Duração", Width = 80, Location = new Point(240, 60) };
-            var txtPrioridade = new TextBox() { Name = "Prioridade", Width = 80, Location = new Point(330, 60) };
-            var txtQuantum = new TextBox()
-            {
-                Text = "Quantum (ex: 2)",
-                Location = new Point(420, 60),
-                Width = 100
-            };
-            panelCorpo.Controls.AddRange(new Control[] { txtNome, txtChegada, txtDuracao, txtPrioridade, txtQuantum });
+
+            // Label e TextBox para Nome
+            var lblNome = new Label() { Text = "Nome", Location = new Point(20, 40), Width = 120 };
+            var txtNome = new TextBox() { Width = 120, Location = new Point(20, 65) };
+
+            // Label e TextBox para Chegada
+            var lblChegada = new Label() { Text = "Chegada", Location = new Point(150, 40), Width = 80 };
+            var txtChegada = new TextBox() { Width = 80, Location = new Point(150, 65) };
+
+            // Label e TextBox para Duração
+            var lblDuracao = new Label() { Text = "Duração", Location = new Point(240, 40), Width = 80 };
+            var txtDuracao = new TextBox() { Width = 80, Location = new Point(240, 65) };
+
+            // Label e TextBox para Prioridade
+            var lblPrioridade = new Label() { Text = "Prioridade", Location = new Point(330, 40), Width = 80 };
+            var txtPrioridade = new TextBox() { Width = 80, Location = new Point(330, 65) };
+
+            // Label e TextBox para Quantum
+            var lblQuantum = new Label() { Text = "Quantum (ex: 2)", Location = new Point(420, 40), Width = 100 };
+            var txtQuantum = new TextBox() { Width = 100, Location = new Point(420, 65)};
+
+            // Adiciona os Labels e TextBoxes ao painel
+            panelCorpo.Controls.AddRange(new Control[] {
+
+            lblNome, txtNome,
+            lblChegada, txtChegada,
+            lblDuracao, txtDuracao,
+            lblPrioridade, txtPrioridade,
+            lblQuantum, txtQuantum
+            });
 
             // Botão Adicionar
             var btnAdicionar = new Button()
@@ -125,13 +145,23 @@ namespace Projeto
             };
             panelCorpo.Controls.Add(btnExecutarFCFS);
 
+            // Botão Executar Round-Robin
             var btnExecutarRR = new Button()
             {
                 Text = "Executar Round-Robin",
-                Location = new Point(160, 360),
+                Location = new Point(180, 320),
                 Width = 160
             };
             panelCorpo.Controls.Add(btnExecutarRR);
+
+            // Botão Executar SJF
+            var btnExecutarSJF = new Button()
+            {
+                Text = "Executar SJF",
+                Location = new Point(360, 320),
+                Width = 140
+            };
+            panelCorpo.Controls.Add(btnExecutarSJF);
 
             // Evento para adicionar processo à lista
             btnAdicionar.Click += (s, ev) =>
@@ -180,6 +210,7 @@ namespace Projeto
 
             };
 
+            // Evento para executar o algoritmo Round-Robin
             btnExecutarRR.Click += (s, ev) =>
             {
                 if (processosSimulados.Count == 0)
@@ -244,6 +275,47 @@ namespace Projeto
                 MessageBox.Show(log, "Resultado Round-Robin");
             };
 
+            // Evento para executar o algoritmo SJF (Shortest Job First)    
+            btnExecutarSJF.Click += (s, ev) =>
+            {
+                if (processosSimulados.Count == 0)
+                {
+                    MessageBox.Show("Adicione pelo menos um processo.");
+                    return;
+                }
+
+                // Copia a lista para não alterar a original
+                var processosRestantes = processosSimulados
+                    .Select(p => new ProcessoSimulado(p.Nome, p.TempoChegada, p.Duracao, p.Prioridade))
+                    .ToList();
+
+                int tempoAtual = 0;
+                string resultado = "Ordem de execução (SJF):\n\n";
+
+                while (processosRestantes.Count > 0)
+                {
+                    // Seleciona processos já chegados
+                    var disponiveis = processosRestantes
+                        .Where(p => p.TempoChegada <= tempoAtual)
+                        .ToList();
+
+                    if (disponiveis.Count == 0)
+                    {
+                        tempoAtual++;
+                        continue;
+                    }
+
+                    // Seleciona o de menor duração
+                    var proximo = disponiveis.OrderBy(p => p.Duracao).First();
+
+                    resultado += $"{proximo.Nome} (Chegada: {proximo.TempoChegada}, Duração: {proximo.Duracao}) inicia em {tempoAtual}\n";
+                    tempoAtual += proximo.Duracao;
+                    processosRestantes.Remove(proximo);
+                }
+
+                MessageBox.Show(resultado, "Execução SJF");
+            };
+
         }
 
         private void buttonReal_Click(object sender, EventArgs e)
@@ -263,9 +335,10 @@ namespace Projeto
             {
                 Text = "Listagem de Processos Reais",
                 Font = new Font("Arial", 16, FontStyle.Bold),
-                Dock = DockStyle.Top,
+                Location = new Point(120, 1),
+                Width = 400,
                 Height = 40,
-                TextAlign = ContentAlignment.MiddleCenter
+                TextAlign = ContentAlignment.MiddleLeft
             };
             panelCorpo.Controls.Add(lblTitulo);
 
@@ -545,9 +618,10 @@ namespace Projeto
             {
                 Text = "Listagem de Processos Remotos",
                 Font = new Font("Arial", 16, FontStyle.Bold),
-                Dock = DockStyle.Top,
+                Location = new Point(120, 1),
+                Width = 400,
                 Height = 40,
-                TextAlign = ContentAlignment.MiddleCenter
+                TextAlign = ContentAlignment.MiddleLeft
             };
             panelCorpo.Controls.Add(lblTitulo);
 

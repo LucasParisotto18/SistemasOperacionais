@@ -31,3 +31,37 @@ C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\bin\Debug\Syst
 C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\bin\Debug\System.ValueTuple.xml
 C:\Users\Lucas\Desktop\Faculdade\SO\TrabalhoFinal\Projeto\Projeto\obj\Debug\Projeto.csproj.Up2Date
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\Projeto.exe.config
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\Projeto.exe
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\Projeto.pdb
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Buffers.dll
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.IO.Pipelines.dll
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Memory.dll
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Text.Json.dll
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.ValueTuple.dll
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Buffers.xml
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.IO.Pipelines.xml
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Memory.xml
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Text.Json.xml
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\bin\Debug\System.ValueTuple.xml
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\obj\Debug\Projeto.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\obj\Debug\Projeto.exe.config
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\obj\Debug\Projeto.Form1.resources
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\obj\Debug\Projeto.Properties.Resources.resources
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\obj\Debug\Projeto.csproj.GenerateResource.cache
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\obj\Debug\Projeto.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\obj\Debug\Projeto.csproj.Up2Date
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\obj\Debug\Projeto.exe
+C:\Users\Usuario\Desktop\Furb\fase5\Sistemas Operacionais\Final\SistemasOperacionais\Projeto\obj\Debug\Projeto.pdb
