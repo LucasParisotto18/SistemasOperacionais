@@ -1,0 +1,91 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|c:\\users\\lucas\\desktop\\faculdade\\so\\trabalhofinal\\projeto\\projeto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|solutionrelative:projeto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|c:\\users\\lucas\\desktop\\faculdade\\so\\trabalhofinal\\projeto\\projeto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|solutionrelative:projeto\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|c:\\users\\lucas\\desktop\\faculdade\\so\\trabalhofinal\\projeto\\projeto\\atualizadorremoto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|solutionrelative:projeto\\atualizadorremoto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|c:\\users\\lucas\\desktop\\faculdade\\so\\trabalhofinal\\projeto\\projeto\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE583D4-3291-4A3A-8D48-808CB35588F3}|Projeto\\Projeto.csproj|solutionrelative:projeto\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AtualizadorRemoto.cs",
+              "DocumentMoniker": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\AtualizadorRemoto.cs",
+              "RelativeDocumentMoniker": "Projeto\\AtualizadorRemoto.cs",
+              "ToolTip": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\AtualizadorRemoto.cs",
+              "RelativeToolTip": "Projeto\\AtualizadorRemoto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T17:42:45.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Form1.cs",
+              "RelativeDocumentMoniker": "Projeto\\Form1.cs",
+              "ToolTip": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Form1.cs",
+              "RelativeToolTip": "Projeto\\Form1.cs",
+              "ViewState": "AgIAAFgBAAAAAAAAAAAAAGUBAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T17:27:49.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Cliente.cs",
+              "RelativeDocumentMoniker": "Projeto\\Cliente.cs",
+              "ToolTip": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Cliente.cs",
+              "RelativeToolTip": "Projeto\\Cliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T17:22:38.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Form1.cs",
+              "RelativeDocumentMoniker": "Projeto\\Form1.cs",
+              "ToolTip": "C:\\Users\\Lucas\\Desktop\\Faculdade\\SO\\TrabalhoFinal\\Projeto\\Projeto\\Form1.cs [Design]",
+              "RelativeToolTip": "Projeto\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T17:22:31.748Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

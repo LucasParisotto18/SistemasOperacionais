@@ -21,6 +21,15 @@ namespace Projeto
         private Timer timerAtualizacao;
         private TextBox txtBusca;
         private CheckBox btnAtualizar;
+        
+        //private AtualizadorRemoto atualizadorRemoto;
+        
+        private Timer timerAtualizacaoRemota;
+        private string ipRemotoValidacao;
+        private string filtroRemotoAtual;
+        private TextBox txtBuscaRemoto;
+        private CheckBox btnAtualizarRemoto;
+        private TextBox txtIP;
 
 
         public Form1()
@@ -52,6 +61,31 @@ namespace Projeto
                     AtualizarListaDeProcessos();
                 }
             };
+
+
+            timerAtualizacaoRemota = new Timer();
+            timerAtualizacaoRemota.Interval = 8000;
+            timerAtualizacaoRemota.Tick += async (s, ev) =>
+            {
+                if (string.IsNullOrWhiteSpace(ipRemotoValidacao) || !string.IsNullOrEmpty(txtBuscaRemoto.Text) || !btnAtualizarRemoto.Checked 
+                || txtIP.Text != ipRemotoValidacao) return;
+
+                List<ProcessoRemoto> lista = await Cliente.ObterProcessos(ipRemotoValidacao);
+      
+                dgvProcessos.Rows.Clear();
+
+                foreach (var p in lista)
+                {
+                    dgvProcessos.Rows.Add(
+                        p.ProcessName,
+                        p.Id,
+                        p.Memoria.ToString("F2"),
+                        p.usoCpu.ToString("F2"),
+                        p.BasePriority
+                    );
+                }
+            };
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -61,6 +95,9 @@ namespace Projeto
 
         private void buttonSimuladdor_Click(object sender, EventArgs e)
         {
+            ipRemotoValidacao = null;
+            filtroRemotoAtual = null;
+            timerAtualizacaoRemota.Stop();
             timerAtualizacao.Stop();
             panelCorpo.Controls.Clear();
             dgvProcessos.Rows.Clear();
@@ -320,15 +357,14 @@ namespace Projeto
 
         private void buttonReal_Click(object sender, EventArgs e)
         {
-
-            panelCorpo.Controls.Clear(); // limpa os controles antigos do painel
+            ipRemotoValidacao = null;
+            filtroRemotoAtual = null;
+            timerAtualizacaoRemota.Stop();
+            timerAtualizacao.Start();
+            panelCorpo.Controls.Clear();
             dgvProcessos.Rows.Clear();
             dgvProcessos.Location = new Point(20, 95); // ajuste posição
-            panelCorpo.Controls.Add(this.dgvProcessos); // adiciona a grid novamente (se quiser garantir)
-
-            if (!timerAtualizacao.Enabled)
-                timerAtualizacao.Start();
-
+            panelCorpo.Controls.Add(this.dgvProcessos); // adiciona a grid novamente
 
             // Label título
             Label lblTitulo = new Label()
@@ -635,12 +671,12 @@ namespace Projeto
             panelCorpo.Controls.Add(lblBusca);
 
             // TextBox para busca de processos
-            txtBusca = new TextBox()
+            txtBuscaRemoto = new TextBox()
             {
                 Location = new Point(180, 120),
                 Width = 200
             };
-            panelCorpo.Controls.Add(txtBusca);
+            panelCorpo.Controls.Add(txtBuscaRemoto);
 
             // Botão de busca
             var btnBuscar = new Button()
@@ -659,7 +695,7 @@ namespace Projeto
             };
             panelCorpo.Controls.Add(lblIP);
 
-            var txtIP = new TextBox()
+            txtIP = new TextBox()
             {
                 Location = new Point(180, 80),
                 Width = 200,
@@ -674,6 +710,15 @@ namespace Projeto
                 Width = 100
             };
             panelCorpo.Controls.Add(btnConectar);
+
+            btnAtualizarRemoto = new CheckBox()
+            {
+                Text = "Atualizar lista a cada 8 segundos",
+                Location = new Point(20, 350),
+                Width = 250,
+                Checked = true
+            };
+            panelCorpo.Controls.Add(btnAtualizarRemoto);
 
             var lblSelecionar = new Label()
             {
@@ -737,8 +782,7 @@ namespace Projeto
             };
             panelCorpo.Controls.Add(btnEncerrarProcesso);
 
-
-            // Buscar Processos Remotos
+            // Evento Buscar Processos Remotos
             btnConectar.Click += async (s, ev) =>
             {
                 string ip = txtIP.Text.Trim();
@@ -748,6 +792,8 @@ namespace Projeto
                     return;
                 }
 
+                ipRemotoValidacao = ip;
+                filtroRemotoAtual = "";
                 var processos = await Cliente.ObterProcessos(ip);
 
                 if(processos == null || processos.Count == 0)
@@ -779,13 +825,17 @@ namespace Projeto
 
                 if (cbProcessos.Items.Count > 0)
                     cbProcessos.SelectedIndex = 0;
+
+                if (!timerAtualizacaoRemota.Enabled)
+                    timerAtualizacaoRemota.Start();
+
             };
 
             // Evento para buscar Processos Remoto por nome
             btnBuscar.Click += async (s, ev) =>
             {
                 string ip = txtIP.Text.Trim();
-                string termo = txtBusca.Text.Trim();
+                string termo = txtBuscaRemoto.Text.Trim();
 
                 if (string.IsNullOrWhiteSpace(ip) && string.IsNullOrWhiteSpace(termo))
                 {
@@ -891,6 +941,7 @@ namespace Projeto
 
         }
 
+
         // Evento para atualizar a lista de processos a cada 8 segundos
         private void AtualizarListaDeProcessos()
         {
@@ -935,6 +986,7 @@ namespace Projeto
                 }
             }
         }
+
     }
 
 }
