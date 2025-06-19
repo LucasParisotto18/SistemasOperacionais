@@ -7,4 +7,5 @@ Os executáveis estão no seguinte caminho:
 
 
 Cliente: Projeto/bin/Debug/Projeto.exe
+
 Servidor: Sockett/Sockett/bin/Debug/net8.0/Sockett.exe
